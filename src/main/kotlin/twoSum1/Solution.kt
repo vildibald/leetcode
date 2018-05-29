@@ -1,7 +1,5 @@
 package twoSum1
 
-import java.lang.Math.abs
-
 /**
  * Given an array of integers, return indices of the two numbers such that they add up to a specific
  * target. You may assume that each input would have exactly one solution, and you may not use
@@ -13,31 +11,14 @@ import java.lang.Math.abs
 class Solution {
 
     fun twoSum(nums: IntArray, target: Int): IntArray {
-        var result: IntArray
-        for (i in 0 until nums.size - 1) {
-            result = checkFrom(i, nums, target)
-            if (result.isNotEmpty()) {
-                return result
-            }
+        val table = HashMap<Int, Int>()
+        nums.forEachIndexed { i, item ->
+            val diff = target - item
+            if(diff in table)
+               return intArrayOf(table[diff]!!, i)
+            table[item] = i
         }
         return intArrayOf()
     }
 
-    private fun checkFrom(fromIndex: Int, nums: IntArray, target: Int): IntArray {
-        val candidate = target - nums[fromIndex]
-        val indexOfCandidate = nums.indexOfFrom(fromIndex + 1, candidate)
-        if (indexOfCandidate != -1) {
-            return intArrayOf(fromIndex, indexOfCandidate)
-        }
-        return intArrayOf()
-    }
-
-    private fun IntArray.indexOfFrom(fromIndex: Int, element: Int): Int {
-        for (i in fromIndex until this.size) {
-            if (element == this[i]) {
-                return i
-            }
-        }
-        return -1
-    }
 }

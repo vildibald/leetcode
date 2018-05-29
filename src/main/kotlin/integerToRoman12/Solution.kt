@@ -15,9 +15,9 @@ class Solution {
 }
 
 enum class RomanOrder(
-        val small: String,
-        val medium: String,
-        val large: String
+        private val small: String,
+        private val medium: String,
+        private val large: String
 ) {
     ONES("I", "V", "X"),
     TENS("X", "L", "C"),
