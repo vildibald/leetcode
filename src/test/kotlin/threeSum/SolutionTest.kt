@@ -12,8 +12,8 @@ internal class SolutionTest {
         val output = Solution().threeSum(input)
 
         assertEquals(2, output.size)
-        assertTrue(intArrayOf(-1,0,1) contentEquals output[0].toIntArray())
-        assertTrue(intArrayOf(-1, -2, 2) contentEquals output[1].toIntArray())
+        assertTrue(intArrayOf(-1, -1, 2) contentEquals output[0].toIntArray())
+        assertTrue(intArrayOf(-1, 0, 1) contentEquals output[1].toIntArray())
     }
 
     @Test
