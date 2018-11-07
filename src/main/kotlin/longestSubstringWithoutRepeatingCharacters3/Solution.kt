@@ -19,7 +19,7 @@ class Solution {
         val indices = HashMap<Char, Int>()
         s.forEachIndexed { i, character ->
             val maybeFrom = indices[character]
-            if (maybeFrom != null) {
+            maybeFrom?.let {
                 from = max(from,maybeFrom + 1)
             }
             indices[character] = i
